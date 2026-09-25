@@ -14,10 +14,16 @@ _Updated 2026-09-25._
   (interactive re-login needed, not blocking). Target **schema `dbx_skills_mgmt` inside
   `cjc_ssa_ops3_catalog`** (no new top-level catalog).
 
+- **Phase 2 research capture (done):** Expedition `lab/expedition-governed-agent-skills/` with 5 member
+  trips (behavior-and-traces, uc-securable, optimization-loop, hooks-enforcement, blog-pipeline),
+  validated. Promoted to Obsidian idea note (→ in-progress) + mirrored to
+  `research/governed-agent-skills-findings.md`.
+
 ## Next
-- Phase 1.5: initial commit + `jj git push` (done as part of this checkpoint).
-- Phase 2: create field-lab Expedition and capture the completed research as member trips; then FEVM probes.
-- Phases 3–5: `databricks-blog-forge` skill, DAB + schema in `cjc_ssa_ops3_catalog`, prose.sh pipeline.
+- **Phase 2.6 — FEVM hands-on probes** (profile `fevm`): confirm MLflow UC trace-ingestion availability
+  (preview/region), a `genai.evaluate()` Guidelines run, and a UC function + registered-model round-trip
+  into a `dbx_skills_mgmt` schema under `cjc_ssa_ops3_catalog`. Needs Databricks compute execution.
+- Phases 3–5: `databricks-blog-forge` skill, DAB + schema, prose.sh pipeline (pico account = user action).
 
 ## Notes / interactive steps still needed from Chris
 - prose.sh: create a pico.sh account + register an SSH key (Phase 5).

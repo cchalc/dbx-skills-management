@@ -8,11 +8,11 @@
 - [ ] Initial commit + `jj git push`
 
 ## Phase 2 — Research Expedition (field-lab)
-- [ ] Create `lab/expedition-governed-agent-skills/`
-- [ ] Member trips: behavior-and-traces, uc-securable, optimization-loop, hooks-enforcement, blog-pipeline
-- [ ] Capture completed research as instrument readouts
+- [x] Create `lab/expedition-governed-agent-skills/`
+- [x] Member trips: behavior-and-traces, uc-securable, optimization-loop, hooks-enforcement, blog-pipeline
+- [x] Capture completed research as instrument readouts (validated, 6 events)
 - [ ] FEVM probes: MLflow UC trace ingestion, `genai.evaluate()` Guidelines scorer, UC function/model round-trip
-- [ ] Promote keepers to Obsidian + mirror to `research/`
+- [x] Promote keepers to Obsidian (idea note → in-progress) + mirror to `research/governed-agent-skills-findings.md`
 
 ## Phase 3 — Skill
 - [ ] Author `databricks-blog-forge` in `skill/SKILL.md`
