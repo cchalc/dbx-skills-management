@@ -18,3 +18,10 @@
   (MANAGED, Chris's). Create a project **schema** there (e.g. `dbx_skills_mgmt`) instead of a new
   top-level catalog (avoids needing metastore CREATE CATALOG). Other catalogs: ops_data, de_workshop,
   fevm_shared_catalog, system, samples.
+- **2026-09-26 — FEVM verification succeeded (us-east-1, MLflow 3.16.1).** UC trace ingestion + trace
+  tables work; `genai.evaluate()` Guidelines scorer for `exact-authority` = 1.0 (judge
+  `databricks-gpt-5-6-sol`, 54 endpoints); UC function is grantable. define→trace→evaluate proven live.
+- **2026-09-26 — Development practice adopted (see AGENTS.md).** regroup → worktree (worktrunk) → jj
+  commit → run checks → update living docs → merge. Bootstrap exception: AGENTS.md itself committed
+  straight to main (it defines the practice). `.config/wt.toml` pre-merge hooks deferred to Phase 4
+  (when `databricks bundle validate` becomes a real gate) rather than adding a hook that can't run yet.

@@ -24,8 +24,12 @@ _Updated 2026-09-25._
   `exact-authority` ✅ = 1.0 (judge `databricks-gpt-5-6-sol`), UC function round-trip ✅ (grantable).
   **Phase 2 complete.** Recorded into field-lab trips + research mirror + Obsidian note.
 
+## Working practice (now in force — see AGENTS.md)
+regroup → worktree (`wt switch --create`) → jj commit → run checks → update living docs → merge.
+
 ## Next
-- **Phase 3 — skill:** author `databricks-blog-forge` in `skill/SKILL.md`.
+- **Phase 3 — skill (in a worktree):** author `databricks-blog-forge` in `skill/SKILL.md`; review it
+  (`plugin-builder:review-skill`) before merging.
 - **Phase 4 — DAB:** bundle in `bundle/` extending `reconcile_skills`; register skill/prompt/model +
   MLflow experiment into `cjc_ssa_ops3_catalog.dbx_skills_mgmt`; wrap a skill as a registered model
   (the one deferred probe); optionally run `optimize_prompts`/GEPA once.
