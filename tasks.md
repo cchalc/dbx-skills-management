@@ -11,7 +11,7 @@
 - [x] Create `lab/expedition-governed-agent-skills/`
 - [x] Member trips: behavior-and-traces, uc-securable, optimization-loop, hooks-enforcement, blog-pipeline
 - [x] Capture completed research as instrument readouts (validated, 6 events)
-- [ ] FEVM probes: MLflow UC trace ingestion, `genai.evaluate()` Guidelines scorer, UC function/model round-trip
+- [x] FEVM probes (2026-09-26): UC trace ingestion ✅, `genai.evaluate()` Guidelines scorer ✅ (1.0), UC function ✅ (registered-model wrap deferred to Phase 4)
 - [x] Promote keepers to Obsidian (idea note → in-progress) + mirror to `research/governed-agent-skills-findings.md`
 
 ## Phase 3 — Skill

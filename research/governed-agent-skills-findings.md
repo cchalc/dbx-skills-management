@@ -1,8 +1,7 @@
 # Governed agent skills on Databricks — research findings
 
-_Desk research, 2026-09-25. Source of truth: field-lab Expedition
-`deep_research/lab/expedition-governed-agent-skills/` (5 trips). **Not yet hands-on-verified in
-FEVM** — those probes are the next step. Seeds the first blog post._
+_Desk research 2026-09-25; **hands-on verified in FEVM 2026-09-26**. Source of truth: field-lab
+Expedition `deep_research/lab/expedition-governed-agent-skills/` (5 trips). Seeds the first blog post._
 
 ## Thesis
 
@@ -33,9 +32,15 @@ prototypes skills→UC (`workspace-skills/docs/uc-skills-migration.md`, `catalog
 - **Claude Code has runtime hooks.** `settings.json` `PreToolUse`/`PostToolUse` can block a tool call —
   deterministic local enforcement (an earlier note only found worktrunk *lifecycle* hooks).
 
-## To verify hands-on in FEVM (profile `fevm`)
+## Verified hands-on in FEVM — 2026-09-26 (profile `fevm`, us-east-1, MLflow 3.16.1)
 
-1. MLflow UC trace ingestion availability (preview, us-east/us-west, 100 traces/s) — confirm FEVM region.
-2. A real `mlflow.genai.evaluate()` run with a Guidelines scorer built from a field-lab behavior spec.
-3. A UC function + registered-model round-trip (wrap a skill), landing in a `dbx_skills_mgmt` schema
-   under `cjc_ssa_ops3_catalog`.
+1. ✅ **UC trace ingestion works.** `set_experiment_trace_location(UCSchemaLocation('cjc_ssa_ops3_catalog','dbx_skills_mgmt'))`
+   + an emitted `@mlflow.trace` created the trace tables (`..._otel_spans/_logs/_metrics/_metadata/_unified`).
+   The preview is enabled in this us-east-1 workspace.
+2. ✅ **Eval works.** `mlflow.genai.evaluate()` with a Guidelines scorer encoding the `exact-authority`
+   behavior spec scored a sample **1.0** (judge `databricks:/databricks-gpt-5-6-sol`; 54 endpoints available).
+3. ✅ **UC function round-trip.** Created + called `cjc_ssa_ops3_catalog.dbx_skills_mgmt.behavior_echo`;
+   `SHOW GRANTS` confirms it's a governable securable. (Registered-model wrap: still to do in Phase 4.)
+
+**Net:** define → trace → evaluate is proven live. The optimize step (`optimize_prompts`/GEPA) consumes
+exactly this scorer/score — objective source proven; the optimizer run itself is the one piece not yet executed.

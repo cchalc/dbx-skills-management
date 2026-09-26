@@ -19,11 +19,22 @@ _Updated 2026-09-25._
   validated. Promoted to Obsidian idea note (→ in-progress) + mirrored to
   `research/governed-agent-skills-findings.md`.
 
+- **Phase 2.6 FEVM probes (done 2026-09-26):** us-east-1, MLflow 3.16.1. UC trace ingestion ✅ (trace
+  tables in `cjc_ssa_ops3_catalog.dbx_skills_mgmt`), `genai.evaluate()` Guidelines scorer for
+  `exact-authority` ✅ = 1.0 (judge `databricks-gpt-5-6-sol`), UC function round-trip ✅ (grantable).
+  **Phase 2 complete.** Recorded into field-lab trips + research mirror + Obsidian note.
+
 ## Next
-- **Phase 2.6 — FEVM hands-on probes** (profile `fevm`): confirm MLflow UC trace-ingestion availability
-  (preview/region), a `genai.evaluate()` Guidelines run, and a UC function + registered-model round-trip
-  into a `dbx_skills_mgmt` schema under `cjc_ssa_ops3_catalog`. Needs Databricks compute execution.
-- Phases 3–5: `databricks-blog-forge` skill, DAB + schema, prose.sh pipeline (pico account = user action).
+- **Phase 3 — skill:** author `databricks-blog-forge` in `skill/SKILL.md`.
+- **Phase 4 — DAB:** bundle in `bundle/` extending `reconcile_skills`; register skill/prompt/model +
+  MLflow experiment into `cjc_ssa_ops3_catalog.dbx_skills_mgmt`; wrap a skill as a registered model
+  (the one deferred probe); optionally run `optimize_prompts`/GEPA once.
+- **Phase 5 — blog:** prose.sh (pico account + SSH key = Chris's action); first post from the research.
+
+## FEVM scratch left in place (evidence; safe to keep)
+- schema `cjc_ssa_ops3_catalog.dbx_skills_mgmt` + `behavior_echo` function
+- experiments `/Users/christopher.chalcraft@databricks.com/fevm-probe-eval` and `-traces` + trace tables
+- notebook `/Workspace/Users/christopher.chalcraft@databricks.com/.ai_dev_kit/fevm_mlflow_probe`
 
 ## Notes / interactive steps still needed from Chris
 - prose.sh: create a pico.sh account + register an SSH key (Phase 5).
