@@ -27,9 +27,15 @@ _Updated 2026-09-25._
 ## Working practice (now in force — see AGENTS.md)
 regroup → worktree (`wt switch --create`) → jj commit → run checks → update living docs → merge.
 
+- **Phase 3 skill (done):** `skill/SKILL.md` = `databricks-blog-forge`, full-orchestrator scope
+  (research → draft → verify on FEVM → publish). Authored on jj bookmark `phase-3-skill`, manual
+  structural check passed (review-skill unavailable this session), fast-forwarded to main.
+
 ## Next
-- **Phase 3 — skill (in a worktree):** author `databricks-blog-forge` in `skill/SKILL.md`; review it
-  (`plugin-builder:review-skill`) before merging.
+- **Phase 4 — DAB (jj bookmark `phase-4-dab`):** bundle in `bundle/` extending `reconcile_skills`;
+  register skill/prompt/experiment into `cjc_ssa_ops3_catalog.dbx_skills_mgmt`; wrap a skill as a UC
+  registered model (deferred probe); add `.config/wt.toml` pre-merge `databricks bundle validate`;
+  optionally run `optimize_prompts`/GEPA once. Check: `databricks bundle validate -p fevm` before merge.
 - **Phase 4 — DAB:** bundle in `bundle/` extending `reconcile_skills`; register skill/prompt/model +
   MLflow experiment into `cjc_ssa_ops3_catalog.dbx_skills_mgmt`; wrap a skill as a registered model
   (the one deferred probe); optionally run `optimize_prompts`/GEPA once.

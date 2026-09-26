@@ -15,7 +15,8 @@
 - [x] Promote keepers to Obsidian (idea note → in-progress) + mirror to `research/governed-agent-skills-findings.md`
 
 ## Phase 3 — Skill
-- [ ] Author `databricks-blog-forge` in `skill/SKILL.md`
+- [x] Author `databricks-blog-forge` in `skill/SKILL.md` (full-orchestrator scope: research → draft → verify on FEVM → publish)
+- [ ] Review pass (plugin-builder:review-skill was unavailable this session — did a manual structural check; re-review when available)
 - [ ] Dual-distribution wiring (vibe marketplace / workspace-UC via reconcile DAB)
 
 ## Phase 4 — Databricks build-out
