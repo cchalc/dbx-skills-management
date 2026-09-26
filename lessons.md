@@ -25,3 +25,9 @@
   commit → run checks → update living docs → merge. Bootstrap exception: AGENTS.md itself committed
   straight to main (it defines the practice). `.config/wt.toml` pre-merge hooks deferred to Phase 4
   (when `databricks bundle validate` becomes a real gate) rather than adding a hook that can't run yet.
+- **2026-09-26 — jj and worktrunk do NOT compose in a colocated repo.** `wt switch --create` makes a
+  *git-only* worktree with no `.jj`; `jj -R <worktree>` errors "no jj repo". Verified, then reverted.
+  Confirmed via ai-kitchen-dbx: it has no active wt worktrees (`.git/wt/` only holds worktrunk's cache),
+  jj runs in the main checkout. **Decision:** for this jj-primary repo, isolate with jj (bookmarks /
+  `jj new` / `jj workspace add`), not `wt switch --create`. worktrunk is for git-primary repos + parallel
+  sub-agent handoffs (git-only children). AGENTS.md item 2/6 corrected accordingly.

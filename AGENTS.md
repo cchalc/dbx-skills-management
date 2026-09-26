@@ -8,8 +8,12 @@ practice**, not a suggestion — follow the loop below for every unit of work.
 1. **Regroup first.** Before starting a unit of work, restate the goal in one line, read
    `checkpoint.md`, and check state (`jj status`, `jj log`, `wt list`). Decide the *smallest*
    next step. Do not barrel ahead through multiple phases without pausing to reassess.
-2. **Isolate the work in a worktree.** Use **worktrunk**: `wt switch --create <branch>` for each
-   unit of work so `main` stays clean and parallel work doesn't collide. Keep branches small.
+2. **Isolate the work — with jj (this is a colocated jj+git repo).** jj is the isolation layer:
+   start each unit on its own bookmark (`jj bookmark create <name>` + `jj new`), or use
+   `jj workspace add <path>` when you genuinely need a separate directory. **Do not use
+   `wt switch --create` here** — it makes a *git-only* worktree with no `.jj`, so jj can't operate in
+   it (verified 2026-09-26). worktrunk's place: git-primary repos, and spawning parallel *sub-agents*
+   in git-only worktrees (the child doesn't need jj). Keep changes small.
 3. **Use jj for version control.** This repo is **colocated jj + git**. Commit small, descriptive
    changes with `jj describe -m "..."`; publish with `jj git push`. Every commit message ends with:
    `Co-authored-by: Isaac <no-reply@databricks.com>`.
@@ -22,9 +26,10 @@ practice**, not a suggestion — follow the loop below for every unit of work.
    - `checkpoint.md` — where we are / what's next (rewrite the Next section each session).
    - `tasks.md` — check off what's done, add what's discovered.
    - `lessons.md` — append-only; record every non-obvious finding, gotcha, or decision + its why.
-6. **Merge deliberately.** After checks pass, merge back (`wt merge`) and push. If a worktrunk hook
-   needs approval in a non-interactive run, **stop and ask the human** — never pass `--yes` on their
-   behalf (it's a trust decision about running arbitrary commands).
+6. **Merge deliberately.** After checks pass, fast-forward `main` to the reviewed change
+   (`jj bookmark set main -r <rev>`) and `jj git push`. (In git-primary repos this is `wt merge`.)
+   If a worktrunk hook ever needs approval in a non-interactive run, **stop and ask the human** —
+   never pass `--yes` on their behalf (it's a trust decision about running arbitrary commands).
 
 ## Repo facts
 
