@@ -31,3 +31,11 @@
   jj runs in the main checkout. **Decision:** for this jj-primary repo, isolate with jj (bookmarks /
   `jj new` / `jj workspace add`), not `wt switch --create`. worktrunk is for git-primary repos + parallel
   sub-agent handoffs (git-only children). AGENTS.md item 2/6 corrected accordingly.
+- **2026-09-26 — FEVM metastore is at the registered-model quota (5000/5000).** A DAB
+  `registered_models` resource → `QUOTA_EXCEEDED` (POST /unity-catalog/models). So "skill as UC
+  registered model" is blocked in this shared metastore. **Pivot:** the "skill as UC securable" claim
+  rests on UC **functions** (verified Phase 2, not quota-bound); the bundle deploys a `forge_verify`
+  job (Guidelines eval) instead. `scripts/register_skill_model.py` kept as reference for when quota frees.
+- **2026-09-26 — `.config/wt.toml` pre-merge hooks don't fit the jj-merge flow.** worktrunk pre-merge
+  hooks fire on `wt merge`; we merge via jj fast-forward, so they'd never run. Decision: no wt.toml
+  hook; `databricks bundle validate --strict` is a MANUAL pre-merge check per AGENTS.md (ran it: OK).

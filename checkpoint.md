@@ -31,11 +31,16 @@ regroup → worktree (`wt switch --create`) → jj commit → run checks → upd
   (research → draft → verify on FEVM → publish). Authored on jj bookmark `phase-3-skill`, manual
   structural check passed (review-skill unavailable this session), fast-forwarded to main.
 
+- **Phase 4 DAB (done):** `bundle/` validates `--strict` + deploys to FEVM; `forge_verify` job ran green
+  (exact_authority/mean = 1.0). Registered-model wrap blocked by metastore quota → pivoted to UC-function
+  governance + eval-job. Done on jj bookmark `phase-4-dab`, fast-forwarded to main.
+
 ## Next
-- **Phase 4 — DAB (jj bookmark `phase-4-dab`):** bundle in `bundle/` extending `reconcile_skills`;
-  register skill/prompt/experiment into `cjc_ssa_ops3_catalog.dbx_skills_mgmt`; wrap a skill as a UC
-  registered model (deferred probe); add `.config/wt.toml` pre-merge `databricks bundle validate`;
-  optionally run `optimize_prompts`/GEPA once. Check: `databricks bundle validate -p fevm` before merge.
+- **Phase 5 — blog (parked on you):** create a pico.sh account + register an SSH key, then
+  `blog/sync.sh` publishes; draft the first post ("Can a skill be a Unity Catalog securable?") from
+  `research/governed-agent-skills-findings.md`.
+- **Optional loop closer:** run `optimize_prompts`/GEPA once against the Guidelines scorer.
+- **When metastore quota frees:** run `register_skill_model.py` to add the skill-as-UC-model version.
 - **Phase 4 — DAB:** bundle in `bundle/` extending `reconcile_skills`; register skill/prompt/model +
   MLflow experiment into `cjc_ssa_ops3_catalog.dbx_skills_mgmt`; wrap a skill as a registered model
   (the one deferred probe); optionally run `optimize_prompts`/GEPA once.

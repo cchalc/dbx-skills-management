@@ -1,0 +1,69 @@
+# dbx-skills-management bundle
+# Governance-as-code for the "governed agent skills" thesis. Deploys a serverless
+# job that runs the behavior evaluation (a Guidelines scorer = behavior spec as an
+# LLM judge) against a sample — the repeatable "verify" gate the blog-forge skill
+# uses before publishing. Extends the ai-kitchen-dbx skills-DAB pattern.
+#
+# NOTE (2026-09-26): a UC *registered model* resource was the original plan for the
+# "skill as a UC securable" demo, but the FEVM metastore is at its model quota
+# (5000/5000) -> QUOTA_EXCEEDED. The securable claim instead rests on UC *functions*
+# (verified in Phase 2, not quota-bound). `scripts/register_skill_model.py` keeps the
+# registered-model approach for when quota frees; it is not wired into the job.
+#
+# Deploy:  cd bundle && databricks bundle validate --strict -t fevm -p fevm
+#          databricks bundle deploy -t fevm -p fevm
+#          databricks bundle run forge_verify -t fevm -p fevm
+
+bundle:
+  name: dbx_skills_management
+
+variables:
+  catalog:
+    description: "UC catalog for governed skill assets"
+    default: "cjc_ssa_ops3_catalog"
+  schema:
+    description: "UC schema for governed skill assets"
+    default: "dbx_skills_mgmt"
+  judge_model:
+    description: "Serving endpoint used as the behavior judge"
+    default: "databricks-gpt-5-6-sol"
+  notify_email:
+    default: "christopher.chalcraft@databricks.com"
+
+sync:
+  paths:
+    - .
+
+resources:
+  jobs:
+    forge_verify:
+      name: "Forge: verify behavior (Guidelines eval)"
+      description: "Score a sample against the exact-authority behavior spec via mlflow.genai.evaluate."
+      tasks:
+        - task_key: "verify"
+          spark_python_task:
+            python_file: ${workspace.file_path}/scripts/verify_behavior.py
+            parameters:
+              - "--experiment"
+              - "/Users/${workspace.current_user.userName}/dbx-skills-management-forge"
+              - "--judge_model"
+              - "${var.judge_model}"
+          environment_key: "default"
+      environments:
+        - environment_key: "default"
+          spec:
+            client: "3"
+            dependencies:
+              - "mlflow[databricks]>=3.9.0"
+      email_notifications:
+        on_failure:
+          - "${var.notify_email}"
+      tags:
+        domain: "governed-agent-skills"
+        job_type: "behavior-verify"
+
+targets:
+  fevm:
+    default: true
+    workspace:
+      profile: fevm

@@ -20,8 +20,14 @@
 - [ ] Dual-distribution wiring (vibe marketplace / workspace-UC via reconcile DAB)
 
 ## Phase 4 — Databricks build-out
-- [ ] UC catalog `dbx_skills_mgmt` (schemas: research, traces, skills, models)
-- [ ] DAB in `bundle/` extending `reconcile_skills`; validate + deploy `-t fevm -p fevm-cjc-ssa-ops3`
+- [x] Schema `cjc_ssa_ops3_catalog.dbx_skills_mgmt` (created Phase 2)
+- [x] DAB in `bundle/` — validates `--strict`, deploys to FEVM (`-t fevm -p fevm`), `forge_verify` job
+      **ran green** (exact_authority/mean = 1.0). Governance-as-code = a deployable behavior-eval gate.
+- [~] Skill-as-UC-registered-model: BLOCKED by metastore model quota (5000/5000). Pivoted to UC-function
+      governance (Phase 2) + `register_skill_model.py` kept as reference for when quota frees.
+- [n/a] `.config/wt.toml` pre-merge hook — doesn't fire in the jj-merge flow; `bundle validate` is a
+      manual pre-merge check per AGENTS.md.
+- [ ] Optional: run `optimize_prompts`/GEPA once to close the loop (deferred).
 
 ## Phase 5 — Blog pipeline
 - [ ] pico.sh account + SSH key (user action)
