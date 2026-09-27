@@ -1,6 +1,7 @@
 # Checkpoint — where we left off
 
-_Updated 2026-09-25._
+_Updated 2026-09-27._ **PAUSED after Phase 4.** Full review snapshot in [`SUMMARY.md`](SUMMARY.md).
+Phases 1–4 done & pushed (`main` = `ceef342`); Phase 5 (blog publish) blocked on pico.sh setup.
 
 ## Done
 - **Phase 1 auth (verified):** GitHub identities already keyed correctly — `git@github.com` → cchalc
