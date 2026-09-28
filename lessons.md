@@ -39,3 +39,11 @@
 - **2026-09-26 — `.config/wt.toml` pre-merge hooks don't fit the jj-merge flow.** worktrunk pre-merge
   hooks fire on `wt merge`; we merge via jj fast-forward, so they'd never run. Decision: no wt.toml
   hook; `databricks bundle validate --strict` is a MANUAL pre-merge check per AGENTS.md (ran it: OK).
+- **2026-09-28 — pico.sh service status (account `cchalc`, SSH-key auth).** prose.sh (blog) is
+  **gated**: "uploading to prose requires an invitation or pico+". pages (`pgs.sh`), patchbin
+  (`pr.pico.sh`), and pastes (`pastes.sh`) work on the free tier; tuns (`tuns.sh`) rejected plain
+  auth (likely pico+ or needs the `-R` form). Invite requested via #pico.sh / hello@pico.sh (pending).
+- **2026-09-28 — pastes.sh interface quirk.** `ssh pastes.sh <name>` reads stdin and creates a paste
+  at `https://cchalc.pastes.sh/<name>` (public-by-URL, ~90-day expiry). `ls`/`help` are WEB view pages,
+  not SSH subcommands — manage pastes at the web dashboard. First snippet live:
+  `https://cchalc.pastes.sh/verify_behavior.py`.

@@ -1,7 +1,10 @@
 # Checkpoint — where we left off
 
-_Updated 2026-09-27._ **PAUSED after Phase 4.** Full review snapshot in [`SUMMARY.md`](SUMMARY.md).
-Phases 1–4 done & pushed (`main` = `ceef342`); Phase 5 (blog publish) blocked on pico.sh setup.
+_Updated 2026-09-28._ **Phase 5 staged, awaiting prose invite.** Full snapshot in [`SUMMARY.md`](SUMMARY.md).
+Phases 1–4 done & pushed. Phase 5: pico account `cchalc` set up; first post drafted (`blog/posts/`,
+`draft: true`); pastes.sh code-sharing live; **publish to prose.sh blocked** — free tier needs an
+invite/pico+ (invite requested via #pico.sh + hello@pico.sh, pending). Publish = `blog/sync.sh --live`
+the moment prose unlocks.
 
 ## Done
 - **Phase 1 auth (verified):** GitHub identities already keyed correctly — `git@github.com` → cchalc

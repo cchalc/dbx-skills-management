@@ -30,6 +30,9 @@
 - [ ] Optional: run `optimize_prompts`/GEPA once to close the loop (deferred).
 
 ## Phase 5 — Blog pipeline
-- [ ] pico.sh account + SSH key (user action)
-- [ ] `blog/sync.sh` → prose.sh; first post ("Can a skill be a Unity Catalog securable?")
+- [x] pico.sh account (`cchalc`) + SSH key
+- [x] Service check: pages/patchbin/pastes ✅ free; prose ⚠️ gated (pico+/invite); tuns likely pico+
+- [x] First post DRAFTED + staged: `blog/posts/can-a-skill-be-a-uc-securable.md` (`draft: true`)
+- [x] Code-sharing live on pastes.sh: `https://cchalc.pastes.sh/verify_behavior.py`
+- [ ] BLOCKED: publish to prose.sh via `blog/sync.sh --live` — needs prose invite (requested, pending)
 - [ ] Decide fate of old `cchalc/blog` (archive/repurpose)
